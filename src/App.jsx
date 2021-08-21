@@ -14,12 +14,12 @@ function App() {
      {
       id: '1',
       nombre: 'Pantalon verde',
-      img: 'https://tse1.mm.bing.net/th?id=OIP.rTYfHDrTyYL7U2Dl8S0gTAAAAA&pid=Api&P=0&w=300&h=300'
+      imagen: 'https://tse1.mm.bing.net/th?id=OIP.rTYfHDrTyYL7U2Dl8S0gTAAAAA&pid=Api&P=0&w=300&h=300'
     },
     {
       id: '2',
       nombre: 'Pantalon azul',
-      img: 'https://tse2.mm.bing.net/th?id=OIP.i9r0JTzi3Bf93FwpsLiUGAHaJ4&pid=Api&P=0&w=300&h=300'
+      imagen: 'https://tse2.mm.bing.net/th?id=OIP.i9r0JTzi3Bf93FwpsLiUGAHaJ4&pid=Api&P=0&w=300&h=300'
     }
   ]
   return (  
