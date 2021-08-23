@@ -5,7 +5,7 @@ const Productos = ({ title, productos }) => {
     // const title = props.title;
     // const productos = props.productos;
     // const { title, productos } = props;
-    const mapProductos = productos.map((producto) => (<Producto key={producto.id} producto={producto} />));
+    const mapProductos = productos.map((producto) => <Producto key={producto.id} producto={producto} /> );
 
     return (
         <>

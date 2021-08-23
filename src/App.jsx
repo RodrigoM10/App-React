@@ -4,24 +4,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Contador } from './components/Contador';
 import { NavRB } from './components/TheNav';
 import { Container } from 'react-bootstrap';
-import { Productos } from './components/Productos';
+import  Productos  from './components/Productos';
 
 function App() {
 
-  let title = " Productos destacados de verano"
+  const title = " Productos destacados de verano"
 
-  let productos = [
+  const productos = [
      {
       id: '1',
       nombre: 'Pantalon verde',
-      imagen: 'https://tse1.mm.bing.net/th?id=OIP.rTYfHDrTyYL7U2Dl8S0gTAAAAA&pid=Api&P=0&w=300&h=300'
+      img: 'https://tse1.mm.bing.net/th?id=OIP.rTYfHDrTyYL7U2Dl8S0gTAAAAA&pid=Api&P=0&w=300&h=300'
     },
     {
       id: '2',
       nombre: 'Pantalon azul',
-      imagen: 'https://tse2.mm.bing.net/th?id=OIP.i9r0JTzi3Bf93FwpsLiUGAHaJ4&pid=Api&P=0&w=300&h=300'
+      img: 'https://tse2.mm.bing.net/th?id=OIP.i9r0JTzi3Bf93FwpsLiUGAHaJ4&pid=Api&P=0&w=300&h=300'
     }
-  ]
+  ];
+
+
   return (  
     <div>
       <NavRB />
