@@ -1,11 +1,11 @@
-import {  Navbar, Nav, Container, NavDropdown} from 'react-bootstrap';
+import {  Navbar, Nav, Container} from 'react-bootstrap';
 import React from 'react'
 
 export const NavRB = (props) => {
     const {setSeccion} = props;
  
     return(
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar className="navbar" bg="dark" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

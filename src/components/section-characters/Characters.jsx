@@ -1,31 +1,40 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Form, FormControl, Pagination, Button } from 'react-bootstrap';
-import Character from './Character';
+import { Form, Pagination, Button, Offcanvas, FloatingLabel } from 'react-bootstrap';
+import Character from '../card-character/Character';
+import './characters.css'
 
 
 export default function Characters(props) {
+
+
     const [characters, setCharacters] = useState([]);
+    const [info, setInfo] = useState([]);
     const [page, setPage] = useState(1);
     const [name, setName] = useState('rick');
-    const [status, setStatus] = useState('alive');
+    const [status, setStatus] = useState('');
+    const [species, setSpecies] = useState('');
 
 
     useEffect(() => {
         const request = async () => {
             try {
-                const response = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}&name=${name}&status=${status}`);
+                const response = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}&name=${name}&status=${status}&species=${species}`);
                 const charactersRM = response.data.results;
+                const infoRM = response.data.info;
+                setInfo(infoRM);
                 setCharacters(charactersRM);
-                console.log("🚀 ~ file: Characters.jsx ~ line 15 ~ request ~ haractersRM", charactersRM)
+                console.log("🚀 ~ file: Characters.jsx ~ line 28 ~ request ~ infoRM", infoRM)
+                console.log("🚀 ~ file: Characters.jsx ~ line 15 ~ request ~ charactersRM", charactersRM)
+                
             } catch (error) {
                 console.error(error);
                 alert('Hubo un error en la conexion al servidor de Rick & & Morty API')
             }
         }
         request();
-
-    }, [page, name, status])
+        
+    }, [page, name, status, species]);
 
     const mapCharacters = characters.map((char) => (
         <Character key={char.id} character={char} />
@@ -33,22 +42,12 @@ export default function Characters(props) {
 
     const prevPage = () => { setPage(page - 1) };
     const nextPage = () => { setPage(page + 1) };
-    const firstPage = () => { setPage(page === 0) };
-    const lastPage = () => setPage(page === 34);
+    const firstPage = () => { setPage(1) };
+    const lastPage = () => setPage((info.pages));
+
     return (
         <>
             <h2>Personajes de Rick and Morty</h2>
-            <div className="d-flex ">
-            <Form className="d-flex">
-                <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="mr-2"
-                    aria-label="Search"
-                />
-                <Button variant="outline-primary">Search</Button>
-            </Form>
-            </div>
             <div className="d-flex flex-wrap justify-content-between">
                 {mapCharacters}
             </div>
@@ -59,8 +58,8 @@ export default function Characters(props) {
                     <Pagination.Ellipsis disabled />
                     <Pagination.Item active>{page}</Pagination.Item>
                     <Pagination.Ellipsis disabled />
-                    <Pagination.Item onClick={lastPage} disabled={page === 34} >{34}</Pagination.Item>
-                    <Pagination.Next onClick={nextPage} disabled={page === 34} />
+                    <Pagination.Item onClick={lastPage} disabled={page === info.pages} >{info.pages}</Pagination.Item>
+                    <Pagination.Next onClick={nextPage} disabled={page === info.pages} />
                 </Pagination>
             </div>
         </>

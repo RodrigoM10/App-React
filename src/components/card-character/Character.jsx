@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import './character.css';
 
 export default function Character({ character }) {
-  const { name, status, species, origin, location, image} = character;
+  const { name, status, species, location, image} = character;
   // const {name, url} = origin;
   // const {name, url} = location;
 
